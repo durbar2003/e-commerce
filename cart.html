@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <title>Shopping Cart</title>
+</head>
+<body>
+    <h1><i class="fa fa-shopping-cart" aria-hidden="true"></i></h1>
+    <section>
+        <div>
+            <img src="https://assets.simpleviewcms.com/simpleview/image/upload/c_limit,h_1200,q_75,w_1200/v1/clients/lanecounty/bceb0360_ffca_485c_820b_a4089430e405_66821f2e-3f32-44a7-a004-c12537d8977e.jpg">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam deleniti deserunt at ipsa ab quas natus iure esse ad quos laborum necessitatibus porro earum, dicta fugiat, fuga nemo eius modi voluptas omnis? Dolorum, deserunt.</p>
+            <h6>$34.89</h6>
+            <span></span>
+            <button>Add to Cart</button>
+        </div>
+        <div>
+            <img src="https://th.bing.com/th/id/R3f55f26476056e49c57ca778d70235b8?rik=nce3r9KzXd0ICQ&pid=ImgRaw">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam deleniti deserunt at ipsa ab quas natus iure esse ad quos laborum necessitatibus porro earum, dicta fugiat, fuga nemo eius modi voluptas omnis? Dolorum, deserunt.</p>
+            <h6>$34.89</h6>
+            <span></span>
+            <button>Add to Cart</button>
+        </div>
+        <div>
+            <img src="https://th.bing.com/th/id/Rf85c63f6eaec2738819fc668c9c4685e?rik=iwO0%2fTWU%2brXuxg&pid=ImgRaw">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam deleniti deserunt at ipsa ab quas natus iure esse ad quos laborum necessitatibus porro earum, dicta fugiat, fuga nemo eius modi voluptas omnis? Dolorum, deserunt.</p>
+            <h6>$34.89</h6>
+            <span></span>
+            <button>Add to Cart</button>
+        </div>
+        <div>
+            <img src="https://th.bing.com/th/id/R3a292473fb7b073ab3b583a2cf581905?rik=FjSgzCmU2zpIqQ&pid=ImgRaw">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam deleniti deserunt at ipsa ab quas natus iure esse ad quos laborum necessitatibus porro earum, dicta fugiat, fuga nemo eius modi voluptas omnis? Dolorum, deserunt.</p>
+            <h6>$34.89</h6>
+            <span></span>
+            <button>Add to Cart</button>
+        </div>
+    </section>
+    <div class="select">
+
+    </div>
+    
+</body>
+</html>
+<script type="text/javascript">
+    var noti= document.querySelector('h1');
+var select= document.querySelector('.select');
+var button= document.getElementsByTagName('button');
+for(but of button)
+{
+    but.addEventListener('click', (e)=>{
+        var add=Number(noti.getAttribute('data-count')||0);
+        noti.setAttribute('data-count', add + 1);
+        noti.classList.add('zero');
+
+        var parent=e.target.parentNode;
+        var clone= parent.cloneNode(true);
+        select.appendChild(clone);
+        clone.lastElementChild.innerText="Buy-now";
+        if(clone){
+            noti.onclick=()=>{
+                select.classList.toggle('display');
+            }
+        }
+        var image=e.target.parentNode.querySelector('img');
+        var span=e.target.parentNode.querySelector('span');
+        var s_image=image.cloneNode(false);
+        span.appendChild(s_image);
+        span.classList.add('active');
+        setTimeout(()=>{
+            span.removeChild(s_image);
+            span.classList.remove('active');
+        }, 500);
+    })
+}
+    </script>
